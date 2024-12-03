@@ -15,9 +15,7 @@ export const NewsItem = ({ title, description, src, URL }) => {
           style={{
             height: "150px",
             width: "100%",
-            //maxWidth: "300px",
-            //backgroundSize: "contain",
-            //backgroundPosition: "center",
+            objectFit: "cover",
           }}
           src={src ? src : image}
           className="card-img-top"

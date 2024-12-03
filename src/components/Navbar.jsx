@@ -3,7 +3,6 @@ import { NewsBoard } from "./NewsBoard";
 
 export const Navbar = () => {
   const [category, setCategory] = useState("general");
-  const [country, setCountry] = useState("us");
   return (
     <>
       <nav
@@ -31,6 +30,21 @@ export const Navbar = () => {
                 <a
                   href="#"
                   className="nav-link"
+                  style={{
+                    color: category === "general" ? "orange" : "white",
+                  }}
+                  onClick={() => setCategory("general")}
+                >
+                  General
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  href="#"
+                  className="nav-link"
+                  style={{
+                    color: category === "technology" ? "orange" : "white",
+                  }}
                   onClick={() => setCategory("technology")}
                 >
                   Technology
@@ -40,6 +54,9 @@ export const Navbar = () => {
                 <a
                   href="#"
                   className="nav-link"
+                  style={{
+                    color: category === "business" ? "orange" : "white",
+                  }}
                   onClick={() => setCategory("business")}
                 >
                   Business
@@ -49,6 +66,9 @@ export const Navbar = () => {
                 <a
                   href="#"
                   className="nav-link"
+                  style={{
+                    color: category === "health" ? "orange" : "white",
+                  }}
                   onClick={() => setCategory("health")}
                 >
                   Health
@@ -58,6 +78,9 @@ export const Navbar = () => {
                 <a
                   href="#"
                   className="nav-link"
+                  style={{
+                    color: category === "sports" ? "orange" : "white",
+                  }}
                   onClick={() => setCategory("sports")}
                 >
                   Sports
@@ -67,84 +90,19 @@ export const Navbar = () => {
                 <a
                   href="#"
                   className="nav-link"
+                  style={{
+                    color: category === "entertainment" ? "orange" : "white",
+                  }}
                   onClick={() => setCategory("entertainment")}
                 >
                   Entertainment
                 </a>
               </li>
-              <div className="dropdown">
-                <button
-                  className="btn btn-outline-info dropdown-toggle "
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Select Country
-                </button>
-                <ul className="dropdown-menu">
-                  <li>
-                    <div
-                      className="dropdown-item"
-                      onClick={() => setCountry("us")}
-                    >
-                      USA
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      className="dropdown-item"
-                      onClick={() => setCountry("gb")}
-                    >
-                      UK
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      className="dropdown-item"
-                      onClick={() => setCountry("ru")}
-                    >
-                      RUSSIA
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      className="dropdown-item"
-                      onClick={() => setCountry("fr")}
-                    >
-                      FRANCE
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      className="dropdown-item"
-                      onClick={() => setCountry("de")}
-                    >
-                      GERMANY
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      className="dropdown-item"
-                      onClick={() => setCountry("es")}
-                    >
-                      SPAIN
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      className="dropdown-item"
-                      onClick={() => setCountry("it")}
-                    >
-                      ITALY
-                    </div>
-                  </li>
-                </ul>
-              </div>
             </ul>
           </div>
         </div>
       </nav>
-      <NewsBoard category={category} country={country} />
+      <NewsBoard category={category} />
     </>
   );
 };

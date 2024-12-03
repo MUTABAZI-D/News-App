@@ -1,23 +1,22 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { NewsItem } from "./NewsItem";
-const URL =
-  "https://newsapi.org/v2/top-headlines?country=de&category=business&apiKey=90682b164fea4fb0a95cf330e11f9ff6";
-const URL1 = "https://newsapi.org/v2/top-headlines";
-const VITE_API_KEY = "90682b164fea4fb0a95cf330e11f9ff6";
 
-export const NewsBoard = ({ category, country }) => {
+const URL1 = "https://newsapi.org/v2/top-headlines";
+const VITE_API_KEY = import.meta.env.VITE_API_KEY;
+
+export const NewsBoard = ({ category }) => {
   const [articles, setArtcles] = useState([]);
   useEffect(() => {
     async function fetchNews() {
       const res = await fetch(
-        `${URL1}?country=${country}&category=${category}&apiKey=${VITE_API_KEY}`
+        `${URL1}?country=us&category=${category}&apiKey=${VITE_API_KEY}`
       );
       const data = await res.json();
       setArtcles(data.articles);
     }
     fetchNews();
-  }, [category, country]);
+  }, [category]);
   return (
     <div>
       <h2 className="text-center">
